@@ -1,0 +1,59 @@
+*{
+  border:solid;
+  
+}
+.container .item{
+  /* height:50px; This is what gives space in the boxes themselves
+  width: 50px; */
+  margin:20px;/*This is what is causeing the spacing between the items*/
+  border: 1px solid blue;
+  background: palevioletred;
+  color:white;
+  
+}
+
+/*flex-grow is relitive to the other options,*/
+.item:nth-of-type(1){
+  flex-grow:1;
+}
+.item:nth-of-type(2){
+  flex-grow:2;
+}
+
+.item:nth-of-type(3){
+  flex-grow:3;
+}
+
+.container{
+  width:75%;
+  height:200px;
+  border:1px solid black;
+  display:flex;
+  flex-flow:wrap row;
+  
+  /*to center the content in the middle of the container, justify-content:center and align-items:center;*/
+ 
+  /* align-items:stretch;
+  align-items:flex-start;
+  align-items:flex-end;
+  align-items:center;
+  align-items:baseline;this aligns the bottom the the text, NOT the tops the divs like flex start */
+  
+
+  /* justify-content:flex-start;
+  justify-content: center;/*this centers it in the */
+  /* justify-content: space-evenly; */ 
+
+
+  /* flex-wrap:nowrap;
+  flex-wrap:wrap;
+  flex-wrap:wrap-reverse; */
+
+
+  /* flex-direction:row;
+  flex-direction:row-reverse;
+  flex-direction:column;
+  flex-direction:column-reverse; */
+  flex-wrap:wrap;
+}
+
