@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import * as Yup from "yup";
 import Input from "./Input";
 
@@ -17,6 +18,9 @@ function Form() {
   //Setting up errors
   const [errors, setErrors] = useState({ ...defaultState, terms: "" });
 
+  //Setting up Button state
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
   //formState Schema, this is form  validation
   let formSchema = Yup.object().shape({
     name: Yup.string().required("Your name is required"),
@@ -24,13 +28,22 @@ function Form() {
       .required("Please provide an email")
       .email("This is not a valid email"),
     password: Yup.string().required("Password is required"),
-    terms: Yup.boolean().required("Your consent is required"),
+    terms: Yup.boolean().oneOf([false], "Your consent is required"),
   });
+  //
+
+  useEffect(() => {
+    formSchema.isValid(formState).then((valid) => setButtonDisabled(valid));
+  }, [formState]);
 
   //onSubmit
   const formSubmit = (e) => {
     e.preventDefault();
     console.log("Form was successfully submitted");
+    axios
+      .post("https://reqres.in/api/users", formState)
+      .then(() => console.log("form submitted success"))
+      .catch((err) => console.log(err));
   };
 
   //OnChange-- I would like clarity on this
@@ -137,7 +150,7 @@ function Form() {
           />
         </label> */}
         <br></br>
-        <button>Submit</button>
+        <button disabled={buttonDisabled}>Submit</button>
       </form>
     </>
   );
