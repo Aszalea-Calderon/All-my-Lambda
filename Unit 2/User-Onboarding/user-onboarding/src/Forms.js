@@ -107,10 +107,10 @@ function Form() {
         {/* <label htmlFor="gender" onChange={inputChange}>
           Gender
           <select name="gender" id="gender">
-            <options value="male">Male</options>
-            <options value="female">Female</options>
-            <options value="trans">Trans</options>
-            <options value="nonBinary">Non-Binary</options>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="trans">Trans</option>
+            <option value="nonBinary">Non-Binary</option>
             <option value="notListed">Not Listed</option>
           </select>
         </label> */}

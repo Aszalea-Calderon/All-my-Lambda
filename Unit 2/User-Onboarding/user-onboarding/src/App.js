@@ -5,7 +5,7 @@ import Form from "./Forms.js";
 function App() {
   return (
     <div className="App">
-      <p>test</p>
+      <h1>Application</h1>
       <Form />
     </div>
   );
